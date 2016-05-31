@@ -9,6 +9,7 @@ type Route struct {
     Method      string
     Pattern     string
     HandlerFunc http.HandlerFunc
+    AuthRequired bool 
 }
 
 type Routes []Route
@@ -19,11 +20,20 @@ var routes = Routes{
         "GET",
         "/",
         homePage,
+        false,
     },
     Route{
         "GetSomething",
         "GET",
         "/get",
         getSomething,
+        true,
+    },
+    Route{
+        "GetToken",
+        "GET",
+        "/getToken",
+        getToken,
+        false,
     },
 }

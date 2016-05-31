@@ -3,6 +3,7 @@ package main
 import (
     "net/http"
     "github.com/gorilla/mux"
+    // "github.com/auth0/go-jwt-middleware"
 )
 
 func NewRouter() *mux.Router {
@@ -14,6 +15,9 @@ func NewRouter() *mux.Router {
 
         handler = route.HandlerFunc
         handler = Logger(handler, route.Name)
+        if route.AuthRequired == true {
+            handler = jwtMiddleware.Handler(handler)
+        }
         
         router.
             Methods(route.Method).
