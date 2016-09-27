@@ -25,7 +25,7 @@ var routes = Routes{
     Route{
         "GetSomething",
         "GET",
-        "/get",
+        "/getsomething",
         getSomething,
         true,
     },
