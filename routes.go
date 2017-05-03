@@ -30,7 +30,7 @@ var routes = Routes{
         true,
     },
     Route{
-        "GetToken",
+        "GetTokens",
         "GET",
         "/getToken",
         getToken,
